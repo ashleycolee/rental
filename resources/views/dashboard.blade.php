@@ -22,15 +22,15 @@
                 </div>
             </div>
             <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-                <a href="/alat" class="block p-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-blue-700 transition-all">
+                <a href="/alat" class="block p-6 bg-linear-to-r from-blue-500 to-blue-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-blue-700 transition-all">
                     <h3 class="text-xl font-bold mb-2">Kelola Alat</h3>
                     <p>Tambah/Edit Alat & Kategori</p>
                 </a>
-                <a href="/peminjaman" class="block p-6 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-emerald-600 hover:to-emerald-700 transition-all">
+                <a href="/peminjaman" class="block p-6 bg-linear-to-r from-emerald-500 to-emerald-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-emerald-600 hover:to-emerald-700 transition-all">
                     <h3 class="text-xl font-bold mb-2">Peminjaman</h3>
                     <p>Kelola Peminjaman</p>
                 </a>
-                <a href="/alat-masuk" class="block p-6 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-purple-600 hover:to-purple-700 transition-all">
+                <a href="/alat-masuk" class="block p-6 bg-linear-to-r from-purple-500 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-purple-600 hover:to-purple-700 transition-all">
                     <h3 class="text-xl font-bold mb-2">Alat Masuk</h3>
                     <p>Tambah Stok</p>
                 </a>

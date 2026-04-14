@@ -1,96 +1,3 @@
-<?php
-
-use App\Models\Alat;
-use App\Models\Kategori;
-use App\Models\Peminjaman;
-use Livewire\WithPagination;
-use Livewire\Volt\Component;
-
-new class extends Component {
-    use WithPagination;
-    
-    public $search = '';
-    public $selectedKategori = '';
-    public $alat;
-    public $kategoris = [];
-    public $showPinjamModal = false;
-    public $selectedAlatId;
-    public $form = [
-        'tglpinjam' => '',
-        'qty' => 1,
-    ];
-    
-    public function mount(): void
-    {
-        $this->kategoris = Kategori::pluck('namakategori', 'idkategori');
-        $this->loadAlat();
-        dd('asd');
-    }
-    
-    public function updatedSearch(): void
-    {
-        $this->resetPage();
-        $this->loadAlat();
-    }
-    
-    public function updatedSelectedKategori(): void
-    {
-        $this->resetPage();
-        $this->loadAlat();
-    }
-    
-    private function loadAlat(): void
-    {
-        $query = Alat::with('kategori')
-            ->where('qty', '>', 0)
-            ->when($this->search, fn($q) => $q->where('namaalat', 'like', '%'.$this->search.'%')
-                ->orWhere('spesifikasi', 'like', '%'.$this->search.'%'))
-            ->when($this->selectedKategori, fn($q) => $q->where('idkategori', $this->selectedKategori));
-        
-        $this->alat = $query->latest()->paginate(12);
-    }
-    
-    public function pinjam($id): void
-    {
-        $this->selectedAlatId = $id;
-        $this->form['tglpinjam'] = now()->format('Y-m-d');
-        $this->showPinjamModal = true;
-    }
-    
-    public function submitPinjam(): void
-    {
-        $this->validate([
-            'form.tglpinjam' => 'required|date',
-            'form.qty' => 'required|integer|min:1',
-        ]);
-        
-        $this->alat = Alat::findOrFail($this->selectedAlatId);
-        if ($this->alat->qty < $this->form['qty']) {
-            $this->addError('form.qty', 'Stok tidak cukup!');
-            return;
-        }
-        
-        Peminjaman::create([
-            'tglpinjam' => $this->form['tglpinjam'],
-            'idalat' => $this->selectedAlatId,
-            'qty' => $this->form['qty'],
-            'iduser' => auth()->id(),
-            'status' => 'menunggu',
-        ]);
-        
-        $this->showPinjamModal = false;
-        $this->dispatch('notify', ['message' => 'Permintaan peminjaman berhasil dikirim!', 'type' => 'success']);
-        $this->resetForm();
-        $this->loadAlat();
-    }
-    
-    private function resetForm(): void
-    {
-        $this->form = ['tglpinjam' => '', 'qty' => 1];
-        $this->selectedAlatId = null;
-    }
-}; ?>
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -111,8 +18,7 @@ new class extends Component {
     <body class="font-sans antialiased">
         <div class="min-h-screen flex bg-gradient-to-br from-slate-50 to-blue-50">
             <div class="w-full">
-                <livewire:layout.navigation />
-@dd($alat)
+                @include('layouts.navigation')
                 <main class="p-6 lg:p-8">
                     <div class="max-w-7xl mx-auto">
                         <!-- Hero -->
@@ -147,7 +53,7 @@ new class extends Component {
 
                         <!-- Grid -->
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                            @forelse($alat as $item)
+                            {{-- @forelse($alat as $item)
                                 <div class="group bg-white/70 backdrop-blur rounded-3xl shadow-2xl border border-white/50 overflow-hidden hover:shadow-emerald/20 hover:border-emerald-200/50 transition-all duration-500 hover:scale-[1.02]" wire:navigate.href="{{ route('alat.show', $item->idalat) }}">
                                     <!-- Image -->
                                     <div class="relative h-64 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
@@ -193,14 +99,14 @@ new class extends Component {
                                     <h2 class="text-3xl font-black text-slate-900 mb-4">Nothing here yet</h2>
                                     <p class="text-xl text-slate-600 max-w-md mx-auto">No items match your search. Try adjusting your filters or check back soon.</p>
                                 </div>
-                            @endforelse
+                            @endforelse --}}
                         </div>
 
-                        @if($alat->hasPages())
+                        {{-- @if($alat->hasPages())
                             <div class="flex justify-center mt-24">
                                 {{ $alat->links() }}
                             </div>
-                        @endif
+                        @endif --}}
                     </div>
                 </main>
 

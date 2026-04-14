@@ -9,13 +9,13 @@ class KategoriController extends Controller
 {
     public function index(Request $request)
     {
-        $search = $request->get('search');
-        
+        $search = $request->input('search');
+
         $kategoris = Kategori::when($search, function ($query, $search) {
             return $query->where('namakategori', 'like', "%{$search}%");
         })
-        ->latest()
-        ->paginate(10);
+            ->latest()
+            ->paginate(10);
 
         return view('kategori.index', compact('kategoris', 'search'));
     }
@@ -50,7 +50,7 @@ class KategoriController extends Controller
     public function update(Request $request, Kategori $kategori)
     {
         $validated = $request->validate([
-            'namakategori' => ['required', 'string', 'max:255', Rule::unique('kategori')->ignore($kategori->idkategori)],
+            'namakategori' => ['required', 'string', 'max:255'],
         ]);
 
         $kategori->update($validated);

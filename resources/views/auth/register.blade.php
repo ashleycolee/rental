@@ -41,7 +41,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         Auth::login($user);
 
-$this->redirect(auth()->user()->role === 'user' ? '/beranda' : '/dashboard', navigate: true);
+$this->redirect(Auth::user()->role === 'user' ? '/beranda' : '/dashboard', navigate: true);
     }
 }; ?>
 

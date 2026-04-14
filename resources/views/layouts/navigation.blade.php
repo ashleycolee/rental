@@ -42,7 +42,7 @@
                         <x-dropdown-link href="{{ route('profile') }}">Profile</x-dropdown-link>
                         <x-dropdown-link href="{{ route('profile', ['#password-form']) }}">Ganti Password</x-dropdown-link>
                         <hr class="my-2 border-gray-200">
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('logout', Auth::user()) }}">
                             @csrf
                             <button type="submit" class="w-full text-left text-sm text-gray-600 hover:bg-red-50 hover:text-red-700 px-4 py-2 rounded-lg transition-colors">
                                 Logout

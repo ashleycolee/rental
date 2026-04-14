@@ -117,16 +117,11 @@
                 <a class="text-slate-600 hover:text-indigo-500 hover:scale-105 transition-all duration-200" href="#contact">Kontak</a>
             </div>
             <div class="flex items-center gap-4">
-                @if (Route::has('login'))
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="px-6 py-2 text-slate-600 font-semibold hover:text-indigo-600 transition-colors">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="px-6 py-2 text-slate-600 font-semibold hover:text-indigo-600 transition-colors">Login</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="px-6 py-2 bg-primary-gradient text-white rounded-full font-semibold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all duration-200">Register</a>
-                        @endif
-                    @endauth
-                @endif
+                @auth
+                    <a href="{{ url('/dashboard') }}" class="px-6 py-2 text-slate-600 font-semibold hover:text-indigo-600 transition-colors">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="px-6 py-2 text-slate-600 font-semibold hover:text-indigo-600 transition-colors">Login</a>
+                @endauth
             </div>
         </nav>
     </header>

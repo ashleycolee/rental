@@ -45,7 +45,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $user->nohp ?? '-' }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
                                             <a href="{{ route('users.edit', $user) }}" class="text-emerald-600 hover:text-emerald-900">Edit</a>
-                                            <form action="{{ route('users.destroy', $user) }}" method="POST" class="inline">
+                                            <form action="{{ route('logout', $user) }}" method="POST" class="inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="text-rose-600 hover:text-rose-900" onclick="return confirm('Yakin hapus user {{ $user->username }}?')">Hapus</button>

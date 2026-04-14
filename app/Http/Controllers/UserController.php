@@ -11,14 +11,14 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $search = $request->get('search');
-        
+        $search = $request->input('search');
+
         $users = User::when($search, function ($query, $search) {
             return $query->where('username', 'like', "%{$search}%")
                 ->orWhere('namalengkap', 'like', "%{$search}%");
         })
-        ->latest()
-        ->paginate(10);
+            ->latest()
+            ->paginate(10);
 
         return view('users.index', compact('users'));
     }
@@ -41,7 +41,7 @@ class UserController extends Controller
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
-        $validated['name'] = $validated['namalengkap']; 
+        $validated['name'] = $validated['namalengkap'];
 
         User::create($validated);
 
@@ -86,4 +86,3 @@ class UserController extends Controller
             ->with('success', 'User berhasil dihapus!');
     }
 }
-

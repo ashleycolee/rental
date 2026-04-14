@@ -7,27 +7,22 @@
 
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-            <form method="POST" action="{{ route('users.store') }}">
+            <form method="POST" action="{{ route('users.create') }}">
                 @csrf
                 <div class="bg-white shadow-sm rounded-lg p-8">
                     <div class="space-y-6">
+                        <div>
+                            <x-input-label for="namalengkap" :value="'Nama Lengkap'" />
+                            <x-text-input id="namalengkap" name="namalengkap" type="text" class="mt-1 block w-full" :value="old('namalengkap')" required />
+                            <x-input-error :messages="$errors->get('namalengkap')" />
+                        </div>
+                        
                         <div>
                             <x-input-label for="username" :value="'Username'" />
                             <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" :value="old('username')" required autofocus />
                             <x-input-error :messages="$errors->get('username')" />
                         </div>
 
-                        <div>
-                            <x-input-label for="namalengkap" :value="'Nama Lengkap'" />
-                            <x-text-input id="namalengkap" name="namalengkap" type="text" class="mt-1 block w-full" :value="old('namalengkap')" required />
-                            <x-input-error :messages="$errors->get('namalengkap')" />
-                        </div>
-
-                        <div>
-                            <x-input-label for="name" :value="'Name'" />
-                            <x-text-input id="namalengkap" name="name" type="text" class="mt-1 block w-full" :value="old('namalengkap')" required />
-                            <x-input-error :messages="$errors->get('name')" />
-                        </div>
 
                         <div>
                             <x-input-label for="email" :value="'Email'" />

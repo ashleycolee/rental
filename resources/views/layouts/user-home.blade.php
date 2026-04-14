@@ -43,9 +43,9 @@
                         <x-slot name="trigger">
                             <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-2xl transition-all cursor-pointer">
                                 <div class="w-10 h-10 bg-gradient-to-r from-gray-500 to-gray-600 rounded-xl flex items-center justify-center text-white font-semibold text-sm">
-                                    {{ strtoupper(substr(auth()->user()->username ?? '', 0, 2)) }}
+                                    {{ strtoupper(substr(Auth::user()->username ?? '', 0, 2)) }}
                                 </div>
-                                <span class="font-semibold text-gray-900 hidden lg:block">{{ auth()->user()->namalengkap ?? auth()->user()->username }}</span>
+                                <span class="font-semibold text-gray-900 hidden lg:block">{{ Auth::user()->namalengkap ?? Auth::user()->username }}</span>
                             </div>
                         </x-slot>
                         <x-slot name="content">

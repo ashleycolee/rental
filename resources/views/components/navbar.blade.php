@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center h-16">
             <!-- Logo -->
             <div class="flex-shrink-0">
-<a href="{{ auth()->user()->role === 'user' ? '/beranda' : '/dashboard' }}" wire:navigate class="flex items-center space-x-2">
+                <a href="{{ Auth::user()->role === 'user' ? '/beranda' : '/dashboard' }}" wire:navigate class="flex items-center space-x-2">
                     <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -38,11 +38,11 @@
                     <x-slot name="trigger">
                         <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl transition-all duration-200 cursor-pointer">
                             <div class="w-10 h-10 bg-gradient-to-r from-gray-500 to-gray-600 rounded-xl flex items-center justify-center text-white font-semibold text-sm">
-                                {{ strtoupper(substr(auth()->user()->username ?? auth()->user()->name ?? '', 0, 2)) }}
+                                {{ strtoupper(substr(Auth::user()->username ?? Auth::user()->name ?? '', 0, 2)) }}
                             </div>
                             <div class="hidden lg:block">
-                                <p class="font-semibold text-gray-900 text-sm">{{ auth()->user()->namalengkap ?? auth()->user()->name ?? 'User' }}</p>
-                                <p class="text-xs text-gray-500">{{ ucfirst(auth()->user()->role ?? 'user') }}</p>
+                                <p class="font-semibold text-gray-900 text-sm">{{ Auth::user()->namalengkap ?? Auth::user()->name ?? 'User' }}</p>
+                                <p class="text-xs text-gray-500">{{ ucfirst(Auth::user()->role ?? 'user') }}</p>
                             </div>
                             <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -51,7 +51,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                    @if(auth()->user()->role === 'user')
+                    @if(Auth::user()->role === 'user')
                         <x-dropdown-link href="/beranda" wire:navigate>
                             Beranda
                         </x-dropdown-link>
@@ -65,7 +65,7 @@
                         <x-dropdown-link :href="route('profile', ['#password-form'])" wire:navigate>
                             Ganti Password
                         </x-dropdown-link>
-                        @if(auth()->user()->role === 'admin')
+                        @if(Auth::user()->role === 'admin')
                         <x-dropdown-link href="/users" wire:navigate>
                             Kelola User
                         </x-dropdown-link>
