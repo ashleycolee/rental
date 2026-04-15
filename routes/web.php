@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     
     // Petugas + Admin routes (alat index only)
     Route::middleware('role:petugas,admin')->group(function () {
-        Route::resource('alat', \App\Http\Controllers\AlatController::class)->only(['index']);
+
     });
 
     // User detail view

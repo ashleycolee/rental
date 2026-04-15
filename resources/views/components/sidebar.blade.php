@@ -16,6 +16,7 @@
         </div>
 
         <!-- Navigation -->
+@if(auth()->user()->role === 'admin')
         <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
             <a href="/dashboard" wire:navigate class="flex items-center p-3 rounded-xl text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 {{ request()->routeIs('dashboard') ? 'bg-blue-50 text-blue-600 border-2 border-blue-200' : '' }}">
                 <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,7 +53,7 @@
                 Alat Masuk
             </a>
 
-@if(auth()->user()->role === 'admin')
+
             <div class="mt-6 pt-6 border-t border-gray-200">
                 <h3 class="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Admin</h3>
                 <a href="/alat" wire:navigate class="flex items-center p-3 rounded-xl text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 {{ request()->routeIs('alat.*') ? 'bg-blue-50 text-blue-600 border-2 border-blue-200' : '' }}">

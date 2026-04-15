@@ -28,7 +28,7 @@ class AlatController extends Controller
     public function create()
     {
         $kategoris = Kategori::pluck('namakategori', 'idkategori');
-        return view('alat.create', compact('kategoris'));
+        return view('alat.create', compact('kategori'));
     }
 
     public function store(Request $request)

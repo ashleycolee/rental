@@ -121,10 +121,7 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="px-6 py-2 text-slate-600 font-semibold hover:text-indigo-600 transition-colors">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="px-6 py-2 text-slate-600 font-semibold hover:text-indigo-600 transition-colors">Login</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="px-6 py-2 bg-primary-gradient text-white rounded-full font-semibold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all duration-200">Register</a>
-                        @endif
+                        <a href="{{ route('login') }}" class="px-6 py-2 bg-primary-gradient text-white rounded-full font-semibold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all duration-200">Login</a>
                     @endauth
                 @endif
             </div>
@@ -186,7 +183,7 @@
                         <p class="text-on-surface-variant leading-relaxed">Alur peminjaman yang intuitif hanya dengan beberapa klik tanpa ribet administrasi manual.</p>
                     </div>
                     <div class="group p-8 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-primary/10">
-                        <div class="w-14 h-14 bg-secondary/10 text-secondary rounded-xl flex items-center justify-center mb-8 group-hover:bg-primary-gradient group-hover:text-white transition-colors">
+                        <div class="w-14 h-14 bg-secondary/10 text-secondary rounded-xl flex items-center justify-center mb-8 group-hover:bg-primary-gradient group-hover:text-red transition-colors">
                             <span class="material-symbols-outlined text-3xl">location_on</span>
                         </div>
                         <h3 class="text-xl font-bold font-headline mb-4">Tracking Real-time</h3>
