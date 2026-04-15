@@ -15,10 +15,14 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-<div class="min-h-screen flex  bg-gradient-to-br from-slate-50 to-blue-50">
-            <x-sidebar />
+        <div class="min-h-screen flex bg-linear-to-br from-slate-50 to-blue-50">
+            @auth
+                <x-sidebar />
+            @endauth
             <div class="w-full">
-                <livewire:layout.navigation />
+                @auth
+                    @include('layouts.navigation')
+                @endauth
 
                 <!-- Page Heading -->
                 @if (isset($header))

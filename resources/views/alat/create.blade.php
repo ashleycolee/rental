@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-            <form method="POST" action="{{ route('alat.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('alat.create') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="bg-white shadow-sm rounded-lg p-8">
                     <div class="space-y-6">

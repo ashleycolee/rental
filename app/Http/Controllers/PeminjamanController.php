@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Peminjaman;
 use App\Models\Alat;
-use App\Models\User;
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class PeminjamanController extends Controller
 {
     public function index(Request $request)
     {
-        $search = $request->get('search');
-        
+        $search = $request->input('search');
+
         $peminjaman = Peminjaman::with(['alat.kategori', 'user'])
             ->when($search, function ($query, $search) {
                 return $query->where('idpinjam', 'like', "%{$search}%")
@@ -30,10 +29,10 @@ class PeminjamanController extends Controller
 
     public function userIndex(Request $request)
     {
-        $search = $request->get('search');
-        
+        $search = $request->input('search');
+
         $peminjaman = Peminjaman::with(['alat.kategori'])
-            ->where('iduser', auth()->id())
+            ->where('iduser', Auth::id())
             ->when($search, function ($query, $search) {
                 return $query->where('idpinjam', 'like', "%{$search}%")
                     ->orWhereHas('alat', function ($q) use ($search) {
@@ -67,7 +66,7 @@ class PeminjamanController extends Controller
             return back()->withErrors(['qty' => 'Stok tidak mencukupi!']);
         }
 
-        $validated['iduser'] = auth()->id();
+        $validated['iduser'] = Auth::id();
         $validated['status'] = 'menunggu';
 
         Peminjaman::create($validated);
@@ -91,7 +90,7 @@ class PeminjamanController extends Controller
     public function update(Request $request, Peminjaman $peminjaman)
     {
         // Admin only can approve/return - user can only edit own
-        if (auth()->user()->role === 'user' && auth()->id() !== $peminjaman->iduser && !in_array($peminjaman->status, ['dikembalikan'])) {
+        if (Auth::user()->role === 'user' && auth()->id() !== $peminjaman->iduser && !in_array($peminjaman->status, ['dikembalikan'])) {
             abort(403, 'Hanya admin yang bisa menyetujui atau mengubah status!');
         }
 
@@ -102,7 +101,7 @@ class PeminjamanController extends Controller
         ]);
 
         // Admin approve: reduce stock
-        if (auth()->user()->role === 'admin' && $validated['status'] === 'disetujui' && $peminjaman->status === 'menunggu') {
+        if (Auth::user()->role === 'admin' && $validated['status'] === 'disetujui' && $peminjaman->status === 'menunggu') {
             $peminjaman->alat->decrement('qty', $peminjaman->qty);
         }
 

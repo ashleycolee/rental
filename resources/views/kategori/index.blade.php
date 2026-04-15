@@ -15,7 +15,7 @@
 
             <!-- Search & Create -->
             <div class="mb-6 flex flex-col sm:flex-row gap-4">
-                <form method="GET" action="{{ route('kategori.index') }}" class="flex-grow">
+                <form method="GET" action="{{ route('kategori.index') }}" class="grow">
                     <div class="flex">
                         <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari kategori..." class="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                         <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700">

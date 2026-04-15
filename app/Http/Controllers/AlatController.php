@@ -6,14 +6,13 @@ use App\Models\Alat;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
 
 class AlatController extends Controller
 {
     public function index(Request $request)
     {
-        $search = $request->get('search');
-        
+        $search = $request->input('search');
+
         $alat = Alat::with('kategori')
             ->when($search, function ($query, $search) {
                 return $query->where('namaalat', 'like', "%{$search}%")
@@ -97,4 +96,3 @@ class AlatController extends Controller
             ->with('success', 'Alat berhasil dihapus!');
     }
 }
-

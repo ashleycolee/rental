@@ -86,4 +86,3 @@ class AlatMasukController extends Controller
             ->with('success', 'Data alat masuk dihapus!');
     }
 }
-

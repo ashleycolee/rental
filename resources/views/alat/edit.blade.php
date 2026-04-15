@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-            <form method="POST" action="{{ route('alat.update', $alat) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('alat.edit', $alat) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="bg-white shadow-sm rounded-lg p-8">

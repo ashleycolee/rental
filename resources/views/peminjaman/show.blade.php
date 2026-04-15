@@ -95,7 +95,7 @@
                             Kembali
                         </a>
                         
-                        @if(auth()->user()->role === 'admin' && $peminjaman->status === 'menunggu')
+                        @if(Auth::user()->role === 'admin' && $peminjaman->status === 'menunggu')
                             <form method="POST" action="{{ route('peminjaman.update', $peminjaman) }}" class="inline">
                                 @csrf
                                 @method('PATCH')
@@ -109,7 +109,7 @@
                             </form>
                         @endif
 
-                        @if(auth()->user()->role === 'admin' && in_array($peminjaman->status, ['disetujui', 'dipinjam']))
+                        @if(Auth::user()->role === 'admin' && in_array($peminjaman->status, ['disetujui', 'dipinjam']))
                             <form method="POST" action="{{ route('peminjaman.update', $peminjaman) }}" class="inline">
                                 @csrf
                                 @method('PATCH')
@@ -123,7 +123,7 @@
                             </form>
                         @endif
 
-                        @if(auth()->user()->role === 'admin')
+                        @if(Auth::user()->role === 'admin')
                             <form method="POST" action="{{ route('peminjaman.destroy', $peminjaman) }}" class="inline">
                                 @csrf
                                 @method('DELETE')

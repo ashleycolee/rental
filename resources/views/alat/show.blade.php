@@ -32,13 +32,13 @@
                                 <p class="text-gray-700 whitespace-pre-line">{{ $alat->spesifikasi ?? 'Tidak ada spesifikasi' }}</p>
                             </div>
                             <div class="flex gap-4 pt-4">
-                                @if(auth()->user()->role !== 'user')
+                                @if(Auth::user()->role !== 'user')
                                 <a href="{{ route('alat.edit', $alat) }}" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                                     Edit
                                 </a>
                                 @endif
-                                <a href="{{ auth()->user()->role === 'user' ? '/beranda' : route('alat.index') }}" class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
-                                    {{ auth()->user()->role === 'user' ? 'Beranda' : 'Kembali' }}
+                                <a href="{{ Auth::user()->role === 'user' ? '/beranda' : route('alat.index') }}" class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
+                                    {{ Auth::user()->role === 'user' ? 'Beranda' : 'Kembali' }}
                                 </a>
                             </div>
                         </div>
