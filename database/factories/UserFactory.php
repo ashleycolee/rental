@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'identitas' => fake()->unique()->numerify('##########'),
             'nohp' => fake()->phoneNumber(),
             'role' => fake()->randomElement(['admin', 'user', 'petugas']),
-            'name' => fake()->name(),
+// 'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),

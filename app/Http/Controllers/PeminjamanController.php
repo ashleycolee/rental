@@ -45,10 +45,12 @@ class PeminjamanController extends Controller
         return view('peminjaman.index', compact('peminjaman', 'search'))->extends('layouts.user-dashboard');
     }
 
-    public function create()
+    public function create($id = null)
     {
         $alat = Alat::with('kategori')->where('qty', '>', 0)->get();
-        return view('peminjaman.create', compact('alat'));
+        $user = Auth::user();
+        $quickId = $id;
+        return view('peminjaman.create', compact('alat', 'user', 'quickId'));
     }
 
     public function store(Request $request)
@@ -58,6 +60,7 @@ class PeminjamanController extends Controller
             'qty' => 'required|integer|min:1',
             'tglpinjam' => 'required|date',
             'tglkembali' => 'nullable|date|after:tglpinjam',
+            'catatan' => 'nullable|string|max:500',
             'kondisiakhir' => 'nullable|string',
         ]);
 

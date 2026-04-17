@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -78,11 +79,13 @@ class UserController extends Controller
             ->with('success', 'User berhasil diupdate!');
     }
 
-    public function destroy(User $user)
+    public function destroy(Request $request)
     {
-        $user->delete();
+         Auth::guard('web')->logout();
 
-        return redirect()->route('users.index')
-            ->with('success', 'User berhasil dihapus!');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

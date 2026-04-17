@@ -13,84 +13,155 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen flex bg-gradient-to-br from-slate-50 to-blue-50">
             <div class="w-full">
                 @include('layouts.navigation')
+               
+<main class="pt-20">
+<!-- Hero Banner -->
+<section class="relative px-8 pt-12 pb-24 overflow-hidden">
+<div class="absolute inset-0 -z-10 bg-linear-to-r from-[#4648d4] via-[#8127cf] to-[#006387] opacity-10"></div>
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/20 rounded-full blur-[100px]"></div>
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 space-y-8 text-left">
+<h1 class="text-5xl lg:text-7xl font-extrabold font-headline leading-[1.1] tracking-tighter text-on-surface">
+                        Temukan &amp; <br/>
+<span class="bg-gradient-to-br from-[#4648d4] to-[#8127cf] bg-clip-text text-transparent">Pinjam Barang</span> <br/>
+                        dengan Mudah
+                    </h1>
+<p class="text-body text-on-surface-variant text-lg max-w-lg leading-relaxed">
+                        Akses ribuan aset berkualitas tinggi dari komunitas terpercaya. Dari perangkat kreatif hingga peralatan riset, semuanya tersedia dalam satu ekosistem.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-gradient-to-br from-[#4648d4] to-[#8127cf]  text-white font-bold rounded-xl shadow-[0_8px_20px_-4px_rgba(70,72,212,0.3)] hover:scale-105 transition-all active:scale-95">
+                            Jelajahi Sekarang
+                        </button>
+<button class="px-8 py-4 bg-white/50 backdrop-blur-md border border-outline-variant/30 text-on-surface font-semibold rounded-xl hover:bg-white/80 transition-all">
+                            Cara Kerja
+                        </button>
+</div>
+</div>
+<div class="flex-1 relative">
+<div class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 group">
+<img class="w-full aspect-[4/3] object-cover" data-alt="modern minimalist workspace with high-end laptop, headphones, and designer stationery on a clean desk at golden hour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6T0LVHE7Kl7r2uvxzkMzWIT1aPNGMf5Xjluayth96czhWCqgt71ak_m3E6pILX65_8a8gyttopEn9e3GIcKSLnn5kGVM09w1gl1maFNvnGZySehK-Oo2o5wU6SWeFuI4-yVHMICCKIiynizUB3clyYiCp8WL8Wva0XBaWbYGUPzVyuTN0vmGjC9vc3jJ88MpPh7FCjkiSQyGh_g4TCkm2oWTOm-2OUIhVY-9dfEb8xpNTGlT6mFma8OUMXQLRBouRdSD3x1E1aWeL"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+<div class="absolute -bottom-6 -left-6 z-20 glass-card bg-white/70 p-6 rounded-2xl shadow-xl border border-white/50">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-primary/10 rounded-xl">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<p class="text-xs font-bold text-outline uppercase tracking-widest">Status</p>
+<p class="text-on-surface font-bold">12k+ Item Terverifikasi</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Search & Categories -->
+<section class="px-8 -mt-12 relative z-30">
+<div class="max-w-5xl mx-auto">
+<div class="glass-card bg-white/80 p-4 rounded-3xl shadow-Ambient flex flex-col md:flex-row gap-4 border border-white/50">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-2xl focus:ring-2 focus:ring-primary/20" placeholder="Apa yang ingin Anda pinjam hari ini?" type="text"/>
+</div>
+<div class="flex gap-2 items-center px-4 overflow-x-auto no-scrollbar whitespace-nowrap">
+<span class="text-sm font-semibold text-outline px-2">Kategori:</span>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-gradient-to-br from-blue-500 to-[#8127cf] text-white text-sm font-bold rounded-full">Semua</button>
+<button class="px-4 py-2 bg-[#e6e8ea] hover:bg-[#e6e8ea] transition-colors text-on-surface-variant text-sm font-medium rounded-full">Elektronik</button>
+<button class="px-4 py-2 bg-[#e6e8ea] hover:bg-[#e6e8ea] transition-colors text-on-surface-variant text-sm font-medium rounded-full">Alat Lab</button>
+<button class="px-4 py-2 bg-[#e6e8ea] hover:bg-[#e6e8ea] transition-colors text-on-surface-variant text-sm font-medium rounded-full">Kamera</button>
+<button class="px-4 py-2 bg-[#e6e8ea] hover:bg-[#e6e8ea] transition-colors text-on-surface-variant text-sm font-medium rounded-full">Audio</button>
+<button class="px-4 py-2 bg-[#e6e8ea] hover:bg-[#e6e8ea] transition-colors text-on-surface-variant text-sm font-medium rounded-full">Perlengkapan Kantor</button>
+</div>
+</div>
+</div>
+</div>
+</section>
                 <main class="p-6 lg:p-8">
                     <div class="max-w-7xl mx-auto">
                         <!-- Hero -->
-                        <div class="text-center mb-24">
-                            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-slate-900 to-emerald-700 bg-clip-text text-transparent mb-6 drop-shadow-2xl">
-                                Discover Items
-                            </h1>
-                            <p class="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                                Browse and borrow high-quality equipment with seamless approval workflow.
-                            </p>
-                        </div>
-
-                        <!-- Filters -->
-                        <div class="flex flex-col lg:flex-row gap-6 max-w-3xl mx-auto mb-20">
-                            <div class="flex-1 bg-white/80 backdrop-blur p-1 rounded-3xl shadow-xl ring-1 ring-slate-200">
-                                <div class="relative">
-                                    <x-text-input wire:model.live.debounce.300ms="search" placeholder="🔍 Search all items..." class="w-full pl-16 pr-4 py-5 border-0 bg-transparent rounded-3xl text-lg focus:ring-emerald-500" />
-                                    <svg class="absolute left-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-slate-400" fill="none" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <select wire:model.live="selectedKategori" class="flex-1 px-6 py-5 border border-slate-200 bg-white/80 backdrop-blur rounded-3xl shadow-xl text-lg focus:ring-emerald-500 focus:border-emerald-500">
-                                <option value="">All Categories</option>
-                                @forelse($kategoris ?? [] as $id => $nama)
-                                    <option value="{{ $id }}">{{ $nama }}</option>
-                                @empty
-                                    <option>No categories</option>
-                                @endforelse
-                            </select>
-                        </div>
-
+                        
                         <!-- Grid -->
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                            {{-- @forelse($alat as $item)
-                                <div class="group bg-white/70 backdrop-blur rounded-3xl shadow-2xl border border-white/50 overflow-hidden hover:shadow-emerald/20 hover:border-emerald-200/50 transition-all duration-500 hover:scale-[1.02]" wire:navigate.href="{{ route('alat.show', $item->idalat) }}">
-                                    <!-- Image -->
-                                    <div class="relative h-64 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
-                                        @if($item->gambaralat)
-                                            <img src="{{ Storage::url($item->gambaralat) }}" alt="{{ $item->namaalat }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                                        @else
-                                            <div class="absolute inset-0 flex items-center justify-center bg-slate-100">
-                                                <svg class="w-24 h-24 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                                </svg>
-                                            </div>
-                                        @endif
-                                        <!-- Status -->
-                                        <div class="absolute top-4 right-4">
-                                            @if($item->qty > 0)
-                                                <span class="px-4 py-2 bg-emerald-100 border border-emerald-200 text-emerald-800 font-bold text-sm rounded-2xl shadow-lg">Available</span>
-                                            @else
-                                                <span class="px-4 py-2 bg-slate-100 border border-slate-200 text-slate-800 font-bold text-sm rounded-2xl shadow-lg">Borrowed</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Card Content -->
-                                    <div class="p-8">
-                                        <h3 class="font-black text-2xl text-slate-900 mb-4 group-hover:text-emerald-700 transition-colors line-clamp-2">{{ $item->namaalat }}</h3>
-                                        <div class="flex items-center gap-2 mb-3">
-                                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-full uppercase tracking-wide">{{ $item->kategori->namakategori ?? 'General' }}</span>
-                                        </div>
-                                        <p class="text-slate-600 leading-relaxed line-clamp-3 mb-6 text-lg">{{ \Illuminate\Support\Str::limit($item->spesifikasi, 150) }}</p>
-                                        <div class="text-2xl font-black text-emerald-600 mb-2">{{ $item->qty }} {{ $item->qty > 1 ? 'available' : 'available' }}</div>
-                                        @if($item->qty > 0)
-                                            <x-primary-button wire:click="pinjam({{ $item->idalat }})" class="w-full font-bold shadow-lg bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-lg py-4 rounded-2xl transition-all transform hover:scale-105 hover:shadow-emerald/30">
-                                                Borrow Now →
-                                            </x-primary-button>
-                                        @endif
-                                    </div>
-                                </div>
+                            @forelse($alat as $item)
+                    <div
+   class="group bg-surface-container-lowest rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+
+    <!-- Image -->
+    <div class="relative rounded-xl overflow-hidden mb-6 aspect-square bg-surface-container-low">
+        @if($item->gambaralat)
+            <img src="{{ Storage::url($item->gambaralat) }}" 
+                 alt="{{ $item->namaalat }}" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        @else
+            <div class="absolute inset-0 flex items-center justify-center bg-slate-100">
+                <svg class="w-20 h-20 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14"/>
+                </svg>
+            </div>
+        @endif
+
+        <!-- Status -->
+        <div class="absolute top-3 left-3">
+            @if($item->qty > 0)
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-full backdrop-blur-md border border-emerald-200">
+                    Tersedia
+                </span>
+            @else
+                <span class="px-3 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full border border-red-200">
+                    Dipinjam
+                </span>
+            @endif
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="space-y-1 mb-6">
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+            {{ $item->kategori->namakategori ?? 'General' }}
+        </p>
+
+        <h3 class="text-xl font-bold text-slate-900 line-clamp-2">
+            {{ $item->namaalat }}
+        </h3>
+
+        <p class="text-sm text-slate-500 line-clamp-2">
+            {{ \Illuminate\Support\Str::limit($item->spesifikasi, 80) }}
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex items-center justify-between">
+        <div>
+            <p class="text-xs text-slate-400 font-medium">Stok</p>
+            <p class="font-bold text-indigo-600">
+                {{ $item->qty }}
+            </p>
+        </div>
+
+        <div class="flex gap-2">
+        @if($item->qty > 0)
+        <a href="{{ route('alat.show', $item->idalat) }}"
+        class="px-4 py-2.5 bg-slate-200 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-full hover:scale-105 active:scale-95 transition-all">
+            Detail
+        </a>
+        <a href="{{ route('peminjaman.create', $item->idalat) }}"
+        class=" px-4 py-2.5 bg-gradient-to-r from-[#4648d4] to-[#8127cf] text-white text-xs font-bold rounded-full hover:scale-105 active:scale-95 transition-all">
+            Pinjam
+        </a>
+        @endif
+        </div>
+    </div>
+
+</div>
                             @empty
                                 <div class="col-span-full p-32 text-center bg-white/50 rounded-3xl backdrop-blur border border-dashed border-slate-300">
                                     <svg class="mx-auto w-24 h-24 text-slate-400 mb-8" fill="none" stroke="currentColor">
@@ -99,16 +170,16 @@
                                     <h2 class="text-3xl font-black text-slate-900 mb-4">Nothing here yet</h2>
                                     <p class="text-xl text-slate-600 max-w-md mx-auto">No items match your search. Try adjusting your filters or check back soon.</p>
                                 </div>
-                            @endforelse --}}
+                            @endforelse
                         </div>
 
-                        {{-- @if($alat->hasPages())
+                        @if($alat->hasPages())
                             <div class="flex justify-center mt-24">
                                 {{ $alat->links() }}
                             </div>
-                        @endif --}}
+                        @endif
                     </div>
-                </main>
+                </div>
 
                 <!-- Borrow Modal -->
                 <x-modal wire:model="showPinjamModal" maxWidth="2xl">
@@ -125,26 +196,7 @@
                             </div>
                         </div>
                         
-                        <form wire:submit="submitPinjam">
-                            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                                <div>
-                                    <x-input-label for="tglpinjam" value="Start Date" />
-                                    <x-text-input type="date" wire:model="form.tglpinjam" class="mt-3" />
-                                    <x-input-error for="form.tglpinjam" />
-                                </div>
-                                <div>
-                                    <x-input-label for="qty" value="Quantity" />
-                                    <x-text-input type="number" wire:model="form.qty" min="1" class="mt-3" />
-                                    <x-input-error for="form.qty" />
-                                </div>
-                            </div>
-                            <div class="flex gap-4 pt-8 border-t border-slate-200">
-                                <x-secondary-button wire:click="$set('showPinjamModal', false)" class="flex-1 h-14 text-lg font-bold rounded-2xl">Cancel</x-secondary-button>
-                                <x-primary-button type="submit" wire:loading.attr="disabled" class="flex-1 h-14 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-lg font-black shadow-xl hover:shadow-emerald/40 rounded-2xl">
-                                    Submit Request
-                                </x-primary-button>
-                            </div>
-                        </form>
+                 
                     </div>
                 </x-modal>
             </div>

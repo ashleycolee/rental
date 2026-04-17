@@ -169,7 +169,7 @@
                     {{-- Submit Button --}}
                     <button
                         type="submit"
-                        class="w-full kinetic-gradient text-black py-4 px-6 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-4"
+                        class="w-full kinetic-gradient text-white py-4 px-6 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-4"
                     >
                         {{ __('Masuk') }}
                     </button>

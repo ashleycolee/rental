@@ -120,7 +120,7 @@
                 @auth
                     <a href="{{ url('/dashboard') }}" class="px-6 py-2 text-slate-600 font-semibold hover:text-indigo-600 transition-colors">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="px-6 py-2 text-slate-600 font-semibold hover:text-indigo-600 transition-colors">Login</a>
+                    <a href="{{ route('login') }}" class="px-6 py-2 text-white font-semibold hover:text-indigo-600 transition-colors bg-gradient-to-br from-[#4648d4] to-[#8127cf] rounded-2xl">Login</a>
                 @endauth
             </div>
         </nav>
@@ -142,14 +142,10 @@
                     Kelola inventaris dan pertukaran aset perusahaan Anda dengan platform berbasis kurasi digital yang memprioritaskan kemudahan dan transparansi.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="px-8 py-4 bg-primary-gradient text-white rounded-xl font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all duration-200 text-center">
+                  
+                        <a href="{{ route('login') }}" class="px-8 py-4 bg-primary-gradient text-white rounded-xl font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all duration-200 text-center">
                             Mulai Sekarang
                         </a>
-                    @endif
-                    <button class="px-8 py-4 glass-panel border border-outline-variant/30 text-on-surface rounded-xl font-bold text-lg hover:bg-surface-container-high transition-all duration-200">
-                        Lihat Demo
-                    </button>
                 </div>
             </div>
             <div class="flex-1 relative w-full aspect-square md:aspect-auto">
@@ -302,11 +298,9 @@
                 <div class="relative z-10 max-w-2xl mx-auto space-y-8">
                     <h2 class="text-4xl md:text-5xl font-extrabold font-headline">Mulai Kelola Peminjaman Lebih Mudah</h2>
                     <p class="text-xl text-white/80">Bergabunglah dengan ratusan tim yang telah mendigitalisasi proses peminjaman mereka bersama The Fluid Exchange.</p>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="inline-block px-10 py-5 bg-white text-primary rounded-xl font-bold text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200">
-                            Daftar Sekarang
+                        <a href="{{ route('login') }}" class="inline-block px-10 py-5 bg-white text-primary rounded-xl font-bold text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200">
+                            Masuk Sekarang
                         </a>
-                    @endif
                 </div>
             </div>
         </section>

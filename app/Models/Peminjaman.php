@@ -14,7 +14,7 @@ class Peminjaman extends Model
     protected $table = 'peminjaman';
     protected $primaryKey = 'idpinjam';
     public $incrementing = true;
-    protected $fillable = ['tglpinjam', 'tglkembali', 'idalat', 'qty', 'iduser', 'kondisiakhir', 'status'];
+    protected $fillable = ['tglpinjam', 'tglkembali', 'idalat', 'qty', 'iduser', 'kondisiakhir', 'status', 'catatan'];
 
     protected $casts = [
         'tglpinjam' => 'date',

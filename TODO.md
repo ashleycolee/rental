@@ -1,2 +1,9 @@
-# TODO: Fix Admin Create Alat 404 Issue\n\n## Plan Steps:\n- [x] 1. Create TODO.md with steps (done)\n- [x] 2. Edit routes/web.php to remove conflicting limited alat resource route\n- [ ] 3. Clear route cache with `php artisan route:clear`\n- [ ] 4. Test admin /alat/create access\n- [ ] 5. Update TODO.md with completion\n- [ ] 6. Attempt task completion
+# Peminjaman Timeline Implementation
 
+## Steps (from approved plan):
+
+- [x] 1. Create TODO.md with implementation steps
+- [x] 2. Edit `resources/views/peminjaman/show.blade.php` - Replace "Status Progress" section with full 4-step timeline
+- [x] 3. Verify timeline states for all statuses (menunggu, disetujui, dipinjam, dikembalikan)
+- [x] 4. Test responsive design and visual elements (connectors, icons, colors)
+- [x] 5. attempt_completion

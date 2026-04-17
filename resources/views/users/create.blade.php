@@ -1,13 +1,9 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Tambah User Baru
-        </h2>
-    </x-slot>
+
 
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-            <form method="POST" action="{{ route('users.create') }}">
+<form method="POST" action="{{ route('users.store') }}">
                 @csrf
                 <div class="bg-white shadow-sm rounded-lg p-8">
                     <div class="space-y-6">
@@ -46,6 +42,7 @@
                             <x-input-label for="role" :value="'Role'" />
                             <select id="role" name="role" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-emerald-500 focus:border-emerald-500">
                                 <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
+                                <option value="admin" {{ old('role') == 'petugas' ? 'selected' : '' }}>Petugas</option>
                                 <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                             </select>
                             <x-input-error :messages="$errors->get('role')" />

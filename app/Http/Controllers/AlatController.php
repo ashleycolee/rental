@@ -27,7 +27,7 @@ class AlatController extends Controller
     public function create()
     {
         $kategoris = Kategori::pluck('namakategori', 'idkategori');
-        return view('alat.create', compact('kategori'));
+        return view('alat.create', compact('kategoris'));
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class AlatController extends Controller
             'namaalat' => 'required|string|max:255',
             'idkategori' => 'required|exists:kategori,idkategori',
             'spesifikasi' => 'nullable|string',
-            'gambaralat' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambaralat' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'qty' => 'required|integer|min:0',
         ]);
 

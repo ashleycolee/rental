@@ -13,6 +13,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Stacked Styles -->
+        @stack('styles')
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen flex bg-linear-to-br from-slate-50 to-blue-50">
@@ -34,10 +37,13 @@
                 @endif
 
                 <!-- Page Content -->
-                <main class="p-6 lg:p-8">
+                <main class="">
                     {{ $slot }}
                 </main>
             </div>
         </div>
+
+        <!-- Stacked Scripts -->
+        @stack('scripts')
     </body>
 </html>

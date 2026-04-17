@@ -24,12 +24,14 @@ class DatabaseSeeder extends Seeder
             'identitas' => '1234567890',
             'nohp' => '08123456789',
             'role' => 'admin',
-            'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('asd')
         ]);
 
-        $this->call(KategoriSeeder::class);
+        $this->call([
+            KategoriSeeder::class,
+            AlatSeeder::class,
+        ]);
 
         User::factory()->create([
             'username' => 'petugas1',
@@ -37,7 +39,6 @@ class DatabaseSeeder extends Seeder
             'identitas' => '1234567891',
             'nohp' => '08123456790',
             'role' => 'petugas',
-            'name' => 'Petugas 1',
             'email' => 'petugas1@gmail.com',
             'password' => Hash::make('asd'),
         ]);
